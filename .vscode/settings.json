@@ -1,4 +1,4 @@
 {
-    "python.pythonPath": "C:\\appl\\Miniconda3\\envs\\streamlit_app\\python.exe",
+    "python.pythonPath": "C:\\Appl\\Miniconda3\\envs\\minimal_ds\\python.exe",
     "python.formatting.provider": "autopep8"
 }

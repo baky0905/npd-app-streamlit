@@ -2,17 +2,17 @@
 """
 # NPD Wells
 """
-
+import streamlit as st
 import plotly.express as px
 import numpy as np
 import pandas as pd
-import streamlit as st
+
 
 st.title("NPD Wells")
 
 st.write("Lets take a peak at the dataframe")
 
-data = pd.read_csv("./data/wellbore_exploration_all.csv")
+data = pd.read_csv("https://factpages.npd.no/ReportServer_npdpublic?/FactPages/TableView/wellbore_exploration_all&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=not_used&CultureCode=en")
 data['spud_year'] = pd.DatetimeIndex(data['wlbCompletionDate']).year
 
 

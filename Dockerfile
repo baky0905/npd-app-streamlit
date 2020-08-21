@@ -10,7 +10,8 @@ ENV PATH="$VIRTUAL_ENV/bin:$PATH"
 
 # add and install requirements
 RUN pip install --upgrade pip
-COPY ./requirements.txt .
+COPY ./requirements.txt ./
+COPY ./app.py ./
 RUN pip install -r requirements.txt
 
 #################
@@ -30,6 +31,9 @@ RUN groupadd --gid $GROUP_ID user && \
     mkdir -p /usr/src/app && \
     chown -R user:user /usr/src/app
 
+COPY ./app.py /usr/src/app
+#COPY ./data/wellbore_exploration_all.csv /usr/src/app
+
 # copy from build image
 COPY --chown=user:user --from=build /opt/venv /opt/venv
 
@@ -45,5 +49,9 @@ ENV PYTHONDONTWRITEBYTECODE 1
 # Path
 ENV PATH="/opt/venv/bin:$PATH"
 
+ENV LISTEN_PORT=8501
+EXPOSE 8501
+
 # Run streamlit
-CMD streamlit run app.py
+ENTRYPOINT ["streamlit", "run", "app.py"]
+#CMD streamlit run ./app.py

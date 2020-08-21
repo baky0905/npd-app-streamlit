@@ -7,9 +7,9 @@ services:
       context: ./
     ports:
       - "8501:8501"
-    volumes:
-      - "./data:/usr/src/app/data:delegated"
-      - "./:/usr/src/app/:delegated"
+    #volumes:
+    #  - "./data:/usr/src/app/data:delegated"
+    #  - "./:/usr/src/app/:delegated"
     environment:
       - USER_ID=1000
       - GROUP_ID=1000
